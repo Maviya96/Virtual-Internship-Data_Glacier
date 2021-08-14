@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+  <title>Experts System for Diagnosing Cancer</title>
+  <style>
+  .button{
+
+    border: none;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 20px 2px;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #FF0000;
+    margin-left: 270px;
+      }
+
+  
+  </style>  
+</head>
+
+
+<body style= "background-image: url('static/b1.jpg'); background-position: center; height: 100%; width: 100%; 
+      background-repeat: no-repeat; background-size: 1200px 800px;">
+
+
+  <h1>Cancer Detection</h1>
+
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    <strong>Enter your cell measurements to detect cancer:<br><br>
+      <label>V1: </label><input type="text" name="V1" placeholder="V1" required="required" />
+      <label>V2: </label><input type="text" name="V2" placeholder="V2" required="required" />
+		  <label>V3: </label><input type="text" name="V3" placeholder="V3" required="required" /><br>
+      <label>V4: </label><input type="text" name="V4" placeholder="V4" required="required" />
+      <label>V5: </label><input type="text" name="V5" placeholder="V5" required="required" />
+      <label>V6: </label><input type="text" name="V6" placeholder="V6" required="required" /><br>
+      <label>V7: </label><input type="text" name="V7" placeholder="V7" required="required" />
+      <label>V8: </label><input type="text" name="V8" placeholder="V8" required="required" />
+      <label>V9: </label><input type="text" name="V9" placeholder="V9" required="required" /><br>
+      <button class='button' type="submit"  ><b>Predict</b></button>
+   </strong>
+    </form>
+
+   <div style="padding-left: 210px">
+    <strong>{{ prediction_text }}</strong>
+   </div>
+
+
+</body>
+
+</html>
